@@ -8,6 +8,37 @@
 
 {% block content%}
 
+<div class="container">
+
+    <div class="controlls">
+        <h3> Todo App</h3>
+    
+        <form action="/" method="POST" class="addDiv">
+            <input id="addInput" name="addInput" type="text" required>
+            <button id="add" method="submit"> <i class="fas fa-plus" style="padding:10px"></i></button>
+        </form>
+        <hr>
+        {% if items|length <= 0 %}
+            <h5 class="text-center">there are no pending tasks, add one above.</h5>
+        {% else %}
+            <div id="items">
+                <ul>
+                
+                        {% for item in items %}
+                            <li id="listItem">
+                                <input id="itemtext" type="text" disabled="true" value="{{item.item_Text}}">
+                                <button id="view" formmethod="GET" onclick="location.href='/view/{{item.id}}'"><i class="fas fa-eye" style="padding:10px"></i></button>
+                                <button id="update" formmethod="POST|GET" onclick="location.href='/update/{{item.id}}'"> <i class="fa fa-pen" style="padding:10px"></i></button>
+                                <button id="delete" formmethod="POST" onclick="location.href='/delete/{{item.id}}'"><i class="fa fa-trash" style="padding:10px"></i></button>
+                            </li>
+                        {%endfor%}
+                    
+                </ul>
+             </div>
+    {%endif%}
+    </div>
+
+</div>
      
 
 {% endblock %}
