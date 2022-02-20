@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block title%}
+
+    Todo - Flask App
+{%endblock%}
+
+
+{% block content%}
+
+<div class="container">
+
+    <div class="controlls">
+        <h3>Edit Task</h3>
+        <form action="/update/{{task.id}}" method="POST">
+                <div>
+                    <label for="newText">Content</label> </br>
+                    <input type="text" name="newText" value="{{task.item_Text}}" aria-multiline="true"
+                    reqiured>
+                    <input type="number" min= 0 max = 1 name="newStatus"value="{{task.complete_Status}}">
+                    <button formmethod="POST"> Submit</button>
+                </div>
+        </form>
+
+    </div>
+
+</div>
+     
+
+{% endblock %}

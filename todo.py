@@ -40,3 +40,27 @@ def index():
     else:
         items = Todo.query.order_by(Todo.date_Created).all()
         return render_template("index.html",items=items)
+
+@app.route("/update/<int:id>", methods=["POST","GET"])
+def updtae(id):
+    task = Todo.query.get_or_404(id)
+    if request.method=="GET":
+        return render_template("update.html", task=task)
+
+    else:
+
+        task.item_Text = request.form["newText"]
+        task.complete_Status = request.form["newStatus"]
+
+        try:
+            db.session.commit()
+            return redirect("/")
+        except:
+            return "OOPS! there was an error with updating your task."
+
+
+
+if __name__=="__name__":
+
+    app.debug = True
+    app.run(app.debug)
