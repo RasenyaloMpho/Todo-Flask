@@ -58,9 +58,20 @@ def updtae(id):
         except:
             return "OOPS! there was an error with updating your task."
 
+@app.route("/delete/<int:id>/")
+def delete(id):
+    item=Todo.query.get_or_404(id)
 
+    try:
+        db.session.delete(item)
+        db.session.commit()
+        return redirect("/")
+    except:
+        return "There was an error deleting your task"
 
 if __name__=="__name__":
 
     app.debug = True
     app.run(app.debug)
+
+
