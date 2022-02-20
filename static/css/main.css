@@ -5,7 +5,7 @@
 body{
     margin:0;
     padding:0;
-    background:linear-gradient(10deg, #008080, black, #008080, black);
+    background-image:linear-gradient(10deg, #008080, black, #008080, black);
     font-family: sans-serif;
     width:100%;
     height:100vh;
