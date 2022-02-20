@@ -69,6 +69,11 @@ def delete(id):
     except:
         return "There was an error deleting your task"
 
+@app.route("/view/<int:id>/")
+def viewDetails(id):
+    task = Todo.query.get_or_404(id)
+    return render_template("view.html", task=task)
+
 if __name__=="__name__":
 
     app.debug = True

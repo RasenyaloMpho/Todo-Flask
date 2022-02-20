@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block title%}
+
+    Todo - Flask App
+{%endblock%}
+
+
+
+
+{% block content%}
+
+<div class="container">
+
+    <div class="controlls">
+        <h3> Task Details</h3>
+        
+        <table style="width:100%;" class="text-center">
+            <tr >
+                <th class="text-center">
+                    ID
+                </th>
+                <th class="text-center">
+                    Contents
+                </th>
+                <th class="text-center">
+                    Complete Status
+                </th>
+                <th class="text-center">
+                    Date Created
+                </th>
+            </tr>
+            <tr>
+                <td>{{task.id}}</td>
+                <td>{{task.item_Text}}</td>
+                <td> {{task.complete_Status}}</td>
+                <td>{{task.date_Created}}</td>
+        
+            </tr>
+        </table>
+            
+    </div>
+
+</div
+
+{% endblock %}
